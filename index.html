@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JS</title>
+
+    <style>
+        .saludar {
+            font-size: 2em;
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            color: #f89807;
+            background-color: #131111;
+            padding: 10px;
+            border: 2px solid #fa0707;
+            text-align: center;
+            width: 25%;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+            .operacion {
+                font-size: 2em;
+                font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+                color: #f89807;
+                background-color: #131111;
+                padding: 10px;
+                border: 2px solid #fa0707;
+                text-align: center;
+                width: 50%;
+            }
+
+            .operacion-section {
+                margin-top: 10px;
+                width: 50%;
+                padding-top: 10px;
+                border-top: 2px solid #3d3d3d;
+            }
+
+            .return {
+                font-size: 2em;
+                font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+                color: #f89807;
+                background-color: #131111;
+                padding: 10px;
+                border: 2px solid #fa0707;
+                text-align: center;
+                width: 50%;
+            }
+
+         
+    </style>
+</head>
+
+<body>
+    <h1>Funciones JS</h1>
+
+    <button onclick="arrancarSaludar()">Saludar</button>
+
+    <div class="contenedor">
+        <div class="section" id="section1">
+            <h2>Ejercicio 1: Saludar</h2>
+            <div class="saludar" id="saludar"></div>
+
+        </div>
+
+    </div>
+
+    <div class="operacion-section" id="section2">
+        <h2>Ejercicio 2: Operaciones +/-</h2>
+        <button onclick="arrancarOperacion()">Calcular</button>   
+    <div class="operacion" id="resultado">IIIIIIIIIIIIIII</div>
+
+
+    <div class="metodo-return">
+        <h2>Ejercicio 3: Método Return</h2>
+        <button onclick="arrancarMetodoReturn()">Calcular Return</button>
+        <div class="return" id="resultadoReturn">iiiiiiiiiiiiii</div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
