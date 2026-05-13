@@ -9,19 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-gradient: radial-gradient(circle at top right, #1e1b4b, #020617);
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --accent-primary: #06b6d4;
-            --accent-secondary: #3b82f6;
-            --accent-pink: #f472b6;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
 
+    <style>
         * {
             box-sizing: border-box;
             margin: 0;
@@ -30,181 +19,170 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
+            background: #fff;
+            color: #111;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 4rem 2rem;
-            line-height: 1.6;
+            padding: 5rem 2rem;
+            line-height: 1.7;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 3rem;
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.02em;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 4rem;
+            letter-spacing: -0.03em;
             text-align: center;
         }
 
         .main-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 640px;
             display: grid;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 2.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+            padding: 0 0 3rem 0;
+            transition: border-color 0.3s ease;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+        .card:last-of-type {
+            border-bottom: none;
         }
 
         .card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.1);
+            border-color: #111;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            color: var(--accent-primary);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
         h2::before {
-            content: 'f()';
-            font-family: monospace;
-            font-size: 0.9rem;
-            background: rgba(6, 182, 212, 0.1);
-            padding: 4px 8px;
-            border-radius: 6px;
-            color: var(--accent-primary);
+            content: none;
         }
 
         button {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
+            background: #111;
+            color: #fff;
             border: none;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 14px;
+            padding: 12px 28px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            border-radius: 0;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3);
-            margin-bottom: 2rem;
+            transition: opacity 0.3s ease;
+            margin-bottom: 1.5rem;
             width: fit-content;
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.4);
-            filter: brightness(1.1);
+            opacity: 0.7;
         }
 
         button:active {
-            transform: translateY(0) scale(0.98);
+            opacity: 0.5;
         }
 
         .result-display {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 0;
             padding: 1.5rem;
-            min-height: 100px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            position: relative;
+            font-size: 1rem;
+            color: #555;
+            font-weight: 300;
         }
 
-        /* Specific ID styles for consistency with old classes */
-        #saludar, #resultado, #resultadoReturn {
-            border-left: 4px solid var(--accent-pink);
+        #saludar,
+        #resultado,
+        #resultadoReturn {
+            border-left: 2px solid #111;
             transition: all 0.3s ease;
         }
 
-        #saludar:not(:empty), #resultado:not(:empty), #resultadoReturn:not(:empty) {
-            color: var(--accent-pink);
-            text-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+        #saludar:not(:empty),
+        #resultado:not(:empty),
+        #resultadoReturn:not(:empty) {
+            color: #111;
+            font-weight: 400;
         }
 
         .metodo-return {
-            border-top: none; /* Removing old border-top style */
+            border-top: none;
+        }
+
+        footer {
+            margin-top: 5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 640px) {
             body {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
             }
-            .card {
-                padding: 1.5rem;
-            }
+
             h1 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1>Funciones JS Lab</h1>
+    <h1>Funciones JavaScript - Ejercicios </h1>
 
     <div class="main-container">
         <!-- Ejercicio 1 -->
         <div class="card section" id="section1">
             <h2>Ejercicio 1: Saludar</h2>
-            <button onclick="arrancarSaludar()">Ejecutar Saludo</button>
-            <div class="result-display saludar" id="saludar">Esperando entrada...</div>
+            <button onclick="arrancarSaludar()">Saludar</button>
+            <div class="result-display saludar" id="saludar">Aquí aparecerá el resultado...</div>
         </div>
 
         <!-- Ejercicio 2 -->
         <div class="card operacion-section" id="section2">
             <h2>Ejercicio 2: Operaciones +/-</h2>
-            <button onclick="arrancarOperacion()">Calcular Operación</button>
-            <div class="result-display operacion" id="resultado">Esperando cálculos...</div>
+            <button onclick="arrancarOperacion()">Calcular</button>
+            <div class="result-display operacion" id="resultado">Aquí aparecerá el resultado...</div>
         </div>
 
         <!-- Ejercicio 3 -->
         <div class="card metodo-return">
             <h2>Ejercicio 3: Método Return</h2>
-            <button onclick="arrancarMetodoReturn()">Ejecutar con Return</button>
-            <div class="result-display return" id="resultadoReturn">Esperando resultado...</div>
+            <button onclick="arrancarMetodoReturn()">Calcular con Return</button>
+            <div class="result-display return" id="resultadoReturn">Aquí aparecerá el resultado...</div>
         </div>
+        <footer>
+            <p>Ironhack - Funciones JavaScript - HASSAN ADRAOU </p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
 
 </body>
 
-</html>
+</html>
